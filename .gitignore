@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+build/
+dist/
+dist_new/
+*.spec
+installer/version.iss
+Orca-*.zip
+Orca-Setup-*.exe
+*.log
