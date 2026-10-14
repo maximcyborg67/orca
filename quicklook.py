@@ -5,7 +5,7 @@ from datetime import datetime
 from PySide6.QtCore import Qt, QRectF, QRunnable, QThreadPool, QObject, Signal, QFileInfo, QSize
 from PySide6.QtGui import QPainter, QColor, QPen, QPixmap, QImage, QImageReader, QFont
 from PySide6.QtWidgets import (QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPlainTextEdit, QStackedWidget,
-                               QFileIconProvider)
+                               QFileIconProvider, QSizePolicy)
 
 import theme
 from util import fmt_size, plural
@@ -76,6 +76,7 @@ class QuickLook(QWidget):
         col.addWidget(self.sub)
         head.addLayout(col, 1)
         self.hint = QLabel("Пробел или Esc — закрыть   ·   ←/→/↑/↓ — другой файл   ·   Enter — открыть")
+        self.hint.setSizePolicy(QSizePolicy.Ignored, QSizePolicy.Preferred)     # длинная подсказка не должна растягивать окно
         head.addWidget(self.hint)
         lay.addLayout(head)
         self.stack = QStackedWidget()
